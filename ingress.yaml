@@ -1,17 +1,21 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: html-ingress
-  namespace: devops-intermidate
+  name: my-ingress
+  annotations:
+    my-image.ingress.kubernetes.io/ssl-redirect: "false"
+    my-image.ingress.kubernetes.io/use-regex: "true"
+    my-image.ingress.kubernetes.io/rewrite-target: /$1
 spec:
+  ingressClassName: nginx
   rules:
-    - host: example.com
-      http:
-        paths:
-        - path: /
-          pathType: Prefix
-          backend:
-            service:
-              name: html-svc
-              port:
-               name: http
+  - host: vramshapuh.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: nginx
+            port:
+              number: 80
