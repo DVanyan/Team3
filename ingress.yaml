@@ -2,6 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: my-ingress
+  namespace: devops-intermidate
   annotations:
     my-image.ingress.kubernetes.io/ssl-redirect: "false"
     my-image.ingress.kubernetes.io/use-regex: "true"
