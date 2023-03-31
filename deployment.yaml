@@ -18,15 +18,5 @@ spec:
       containers:
       - name: html
         image: 003101252163.dkr.ecr.us-east-2.amazonaws.com/my-ecr-repo:latest
-        resources:
-          requests:
-            memory: "64Mi"
-            cpu: "250m"
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
-        env:
-        - name: owner
-          value: your-name
         ports:
         - containerPort: 80
