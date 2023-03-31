@@ -4,9 +4,14 @@ metadata:
   name: nginx
 spec:
   selector:
-    app: nginx
+    app.kubernetes.io/name: nginx
   ports:
-    - name: http-nginx
-      protocol: TCP
+    - protocol: TCP
       port: 80
-      targetPort: http-nginx
+      targetPort: 9376
+  clusterIP: 10.0.1.224
+  type: LoadBalancer
+status:
+  loadBalancer:
+    ingress:
+    - ip: 18.222.24.185
