@@ -5,14 +5,9 @@ metadata:
   namespace: devops-intermidate
 spec:
   selector:
-    app.kubernetes.io/name: nginx
+    app: nginx
   ports:
-    - protocol: TCP
+    - name: http-nginx
+      protocol: TCP
       port: 80
-      targetPort: 9376
-  clusterIP: 18.222.24.185
-  type: LoadBalancer
-status:
-  loadBalancer:
-    ingress:
-    - ip: 10.0.1.224
+      targetPort: http-nginx
